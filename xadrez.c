@@ -1,47 +1,59 @@
 #include <stdio.h>
-// Desafio de Xadrez - MateCheck
+
+void moverBispo(int casas){ //Recursividade Bispo
+    if (casas>0){
+        for (int i=1; i<=1; i++){
+            for (int j = 1; j<=1; j++ ){
+                printf("Direita\n");
+            }
+        printf("Cima\n");  
+        }
+        moverBispo(casas-1);
+    }
+}
+
+void moverTorre(int casas){ //Recursividade Torre
+    if (casas>0){
+        printf("Direita\n");
+        moverTorre(casas-1);
+    }
+}
+
+void moverRainha(int casas){ //Recursividade Rainha
+    if (casas>0){
+        printf("Esquerda\n");
+        moverRainha(casas-1);
+    }
+}
+
+void moverCavalo (int casas){ //Recursividade Cavalo
+    if (casas>0){
+        for (int i = 1; i<=1; i++){
+            for (int j = 1; j<=2; j++ ){
+            printf("Cima\n");
+        }
+        printf("Direita\n");
+        }
+        moverCavalo(casas-1);
+    }
+
+}
+
 int main() {
     
-int b, t, r, c; // variáveis para peças Bispo, Torre, Rainha, cavalo, respectivamente.
-b = 1;
-t = 1;
-r = 1;
-c = 1;
-    //Bispo
-printf("Movimentação do Bispo:\n");
-    while (b<=5){
-        printf("Cima, Direita\n");
-        b++;
-    }
-    //Torre
-printf("Movimentação da Torre:\n");
-    do{
-       printf("Direita\n");
-       t++;
-    } while (t<=5);    
-    //Rainha
-printf("Movimentação Rainha:\n");
-    for (r; r<=8; r++){
-        printf("Esquerda\n");   
-    }
-    // Cavalo
+//Bispo
+    printf("Movimentação do Bispo:\n");   
+    moverBispo(5);
+//Torre
+    printf("Movimentação da Torre:\n");
+    moverTorre(5);
+//Rainha
+    printf("Movimentação Rainha:\n");
+    moverRainha(8);
+// Cavalo
 printf("Movimentação do Cavalo:\n");
-    while(c<=1){
-        c++;
-        for (int i = 1; i<=2; i++ ){
-            printf("Baixo\n");
-        }
-        printf("Esquerda\n");
-        
-    }   
+    moverCavalo(1);
     printf("\n");
-
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
 
     return 0;
 }
